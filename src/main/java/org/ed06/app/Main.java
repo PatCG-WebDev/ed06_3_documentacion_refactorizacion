@@ -7,8 +7,19 @@ import org.ed06.model.Hotel;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+/**
+ * Clase principal que contiene el menú de gestión de un hotel.
+ * Permite registrar habitaciones, registrar clientes, listar habitaciones disponibles,
+ * listar clientes, listar reservas y realizar reservas.
+ *
+ * <p>Se utiliza un menú de opciones gestionado mediante un bucle que permite
+ * al usuario interactuar con el sistema a través de la consola. Esta clase simula la gestión
+ * de un hotel, permitiendo realizar operaciones de administración de reservas y clientes.</p>
+ *
+ * @author Patricia Cid González
+ */
 public class Main {
-    static Scanner scanner = new Scanner(System.in);
+    static final Scanner scanner = new Scanner(System.in);
     // Definimos constantes para las diferentes opciones del menú
     private static final int REGISTRAR_HABITACION = 1;
     private static final int LISTAR_HABITACIONES_DISPONIBLES = 2;
@@ -18,11 +29,18 @@ public class Main {
     private static final int REGISTRAR_CLIENTE = 22;
     private static final int SALIR = 0;
 
+    /**
+     * Método principal que inicia la aplicación del sistema de gestión del hotel.
+     * Registra algunos datos de prueba (habitaciones y clientes), muestra un menú interactivo
+     * y gestiona las acciones del usuario según la opción seleccionada.
+     * El sistema simula un entorno de gestión de reservas de un hotel, permitiendo realizar
+     * operaciones como registrar habitaciones, registrar clientes y realizar reservas.
+     *
+     *  @param args Parámetros de línea de comandos (no utilizados en este caso).
+     */
     public static void main(String[] args) {
-        // Variales locales
         String tipo;
 
-        // Creamos un menú para el administrador con las diferentes opciones proporcionadas
         Hotel hotel = new Hotel("El mirador", "Calle Entornos de Desarrollo 6", "123456789");
 
         // Registramos algunas habitaciones
@@ -39,7 +57,6 @@ public class Main {
         hotel.registrarCliente("Daniel", "daniel@daniel.com", "12345678A", true);
         hotel.registrarCliente("Adrián", "adrian@adrian.es", "87654321B", false);
 
-        // Mostramos el menú
         while (true) {
             mostrarMenu();
             int opcion = scanner.nextInt();
@@ -147,6 +164,10 @@ public class Main {
         }
     }
 
+    /**
+     * Muestra por consola el menú principal de opciones para la gestión del hotel.
+     * Las opciones incluyen registrar habitaciones y clientes, listar datos y realizar reservas.
+     */
     private static void mostrarMenu() {
         System.out.println("Menú:");
         System.out.println("1. Registrar habitación");
